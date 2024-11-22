@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Барбершоп «Бородинский»</title>
+  </head>
+  <body>
+    <!-- -->
+    <!--1 Создали <header> с классом-->
+        
+    <header class="page-header">
+
+        <!--2 Создали навигацию с классом-->
+
+        <nav class="navigation">
+
+            <!--3 Для группировки одинаковых элементов, которые выполняют одну функцию,
+            например, элементов в меню, используется тег <ul> (сокращение от «unordered list»,
+            несортированный список). Его используют, когда порядок элементов не важен.-->
+
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a class="navigation-link" href="about.html">О нас</a>
+                </li>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="catalog.html">Каталог</a>
+                </li>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="faq.html">Частые вопросы</a>
+                </li>
+
+            </ul>
+            <!--4 скопировали навигацию для 2-го меню и поменяли класс на navigation-user,
+            что бы различать меню-->
+
+            <ul class="navigation-user">
+                <li class="navigation-item">
+
+                    <!--5 Так как таких страниц нет в макетах, то мы заменим ссылки на 
+                     знак решётки (#). Этот знак создаёт якорную ссылку,
+                     которая никуда не ведёт. При этом мы не будем переходить на другую
+                     страницу, и у нас не будут возникать ошибки при клике-->
+
+                     <a class="navigation-link" href="#">
+
+                        <!--6 Чтобы правильно скрыть подписи, мы будем
+                         использовать span с классом visually-hidden. -->
+
+                        <span class="visually-hidden">Поиск</span>
+                </li>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#">Корзина</a>
+                </li>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#">Вход</a>
+                </li>
+
+            </ul>
+            
+
+        </nav>
+
+    </header>
+  </body>
+</html>
