@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    
+
     <header class="page-header">
 
         <nav class="navigation">
@@ -49,11 +49,11 @@
 
     </header>
     <!-- -->
-        
-        <!--1 Для выделения основного содержимого страницы, которое не повторяется
+
+    <!--1 Для выделения основного содержимого страницы, которое не повторяется
         на других страницах, используется тег <main>. И обычно на странице
         используется только один тег <main>, логичнее всего повесить на него класс main-index -->
-       <main class="main-index">
+    <main class="main-index">
 
         <!--2 Добавим главный заголовок h1, но его нет в макете, поэтому добавим ему 
         класс visually-hidden — такой же класс, как и на скрытых пунктах меню.-->
@@ -80,21 +80,148 @@
                 <li class="advantages-item">
                     <!--7 Заголовком преимущества будет тег <h3> с классом advantages-title-->
                     <h3 class="advantages-title">Быстро</h3>
-                    <p class="advantages-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и вы — счастливый обладатель стильной стрижки-минутки!</p>
+                    <p class="advantages-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и вы —
+                        счастливый обладатель стильной стрижки-минутки!</p>
                 </li>
                 <li class="advantages-item">
-                    <!--7 Заголовком преимущества будет тег <h3> с классом advantages-title-->
                     <h3 class="advantages-title">Круто</h3>
-                    <p class="advantages-description">Забудьте, как вы стриглись раньше.Мы сделаем из вас звезду футбола или кино! Во всяком случае внешне.</p>
+                    <p class="advantages-description">Забудьте, как вы стриглись раньше. Мы сделаем из вас звезду
+                        футбола
+                        или кино! Во всяком случае внешне.</p>
                 </li>
                 <li class="advantages-item">
-                    <!--7 Заголовком преимущества будет тег <h3> с классом advantages-title-->
                     <h3 class="advantages-title">Дорого</h3>
-                    <p class="advantages-description">Наши мастера — профессионалы своего дела и не могут стоить дешево. к тому же, разве цена не даёт определённый статус?</p>
+                    <p class="advantages-description">Наши мастера — профессионалы своего дела и не могут стоить дешево.
+                        к тому же, разве цена не даёт определённый статус?</p>
                 </li>
             </ul>
 
         </section>
+        <!--8 Добавим раздел (тег <section>) с популярными услугами-->
+        <section class="services">
+            <h2 class="services-title">Популярные услуги</h2>
+            <ul class="services-list">
+                <li class="services-item">
+
+                    <!--9 Название услуги — тег с классом service-name.
+                    Это может быть тег <span>, или тег <h3>, но мы,
+                    как верстальщики, решили, что название услуги 
+                    не несёт сильной смысловой нагрузки в этом блоке,
+                    поэтому сделаем тегом <span>-->
+                    <span class="services-name">Стрижка машинкой</span>
+
+                    <!--10 Для придания выразительности обернули в тег <b>-->
+                    <b class="services-price">800 ₽</b>
+                </li>
+
+                <!--11 Скопировали пункты и заменили названия-->
+                <li class="services-item">
+                    <span class="services-name">Стрижка усов</span>
+                    <b class="services-price">1200 ₽</b>
+                </li>
+                <li class="services-item">
+                    <span class="services-name">Груминг</span>
+                    <b class="services-price">400 ₽</b>
+                </li>
+                <li class="services-item">
+                    <span class="services-name">Комплексная стрижка</span>
+                    <b class="services-price">2300 ₽</b>
+                </li>
+
+                <!--12 «Посмотреть все» сделаем ссылкой на страницу со всеми услугами.
+                Для уточнения дадим ей дополнительный класс button-all-->
+                <a class="button-all" href="#">Посмотреть всё</a>
+
+                <!--13 Создадим секцию для фотогалереи и добавим тудазаголовок-->
+                <section class="gallery">
+                    <h2 class="gallery-title">Фотогалерея</h2>
+                    <!--Верстка слайдера-->
+                    <h2 class="gallery-title">Фотогалерея</h2>
+                    <img class="slider-image" src="#" alt="Примеры работ">
+                    <button class="slider-button slider-prev" type="button">
+                        <span class="visually-hidden">Предыдущее фото</span>
+                    </button>
+                    <button class="slider-button slider-next" type="button">
+                        <span class="visually-hidden">Следующее фото</span>
+                    </button>
+
+                    <!--Элементы для смены активной фотографии верстаются через нумерованный список
+        (<ol>, «ordered list»ы), так как нам важен порядок фотографий в слайдере.
+        Одна точка — это кнопка со скрытым текстом.-->
+                    <ol class="slider-division">
+                        <li class="slider-division-item">
+                            <button class="slider-division-button slider-division-button-current" type="button">
+                                <span class="visually-hidden">1 фото</span>
+                            </button>
+                        </li>
+                    </ol>
+                    <ol class="slider-division">
+                        <li class="slider-division-item">
+                            <button class="slider-division-button slider-division-button-current" type="button">
+                                <span class="visually-hidden">2 фото</span>
+                            </button>
+                        </li>
+                    </ol>
+                    <ol class="slider-division">
+                        <li class="slider-division-item">
+                            <button class="slider-division-button slider-division-button-current" type="button">
+                                <span class="visually-hidden">3 фото</span>
+                            </button>
+                        </li>
+                    </ol>
+                    <ol class="slider-division">
+                        <li class="slider-division-item">
+                            <button class="slider-division-button slider-division-button-current" type="button">
+                                <span class="visually-hidden">4 фото</span>
+                            </button>
+                        </li>
+                    </ol>
+                </section>
+
+                <!--Добавляем сецию контакты-->
+                <section class="contacts">
+                    <h2 class="contacts-title">Контакты</h2>
+                    <h3 class="contacts-subtitle">Барбершоп «Бородинский»</h3>
+                    <address class="contacts-address">
+                        <p class="contacts-address-text">Санкт-Петербург, набережная реки Карповки, 5, литера П.</p>
+                        <a class="contacts-phone" href="tel:+78005558628">+7 800 555-86-28</a>
+
+                        <h3 class="contacts-subtitle">Время работы</h3>
+                        <li class="contacts-schedule-item">пн—пт: с 10:00 до 22:00</li>
+                        <li class="contacts-schedule-item">сб—вс: с 10:00 до 19:00</li>
+            </ul>
+            <a class="button" href="#">Как проехать</a>
+        <a class="button button-feedback" href="#">Обратная связь</a>
+        </section>
+
+        <!--Cекция для записи в барбершоп и добавим туда заголовок и текст с описанием.-->
+        <section class="appointment">
+            <h2 class="appointment-title">Записаться</h2>
+            <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони.</p>
+
+            <!-- Форма для записи -->
+            <form class="appointment-form" action="https://echo.htmlacademy.ru/" method="post">
+                <p class="appointment-form-date">
+                    <label class="form-label" for="appointment-date">Дата</label>
+                    <input type="text" id="appointment-date" name="appointment-date" placeholder="01.01.2025">
+                  </p>
+                  <p class="appointment-form-time">
+                    <label for="appointment-time">Время</label>
+                    <input type="text" id="appointment-time" name="appointment-time" placeholder="10:00">
+                  </p>
+                  <p class="appointment-form-phone">
+                    <label for="appointment-phone">Телефон</label>
+                      <input type="text" id="appointment-phone" name="appointment-phone" placeholder="+7 800 000-00-00">
+                  </p>
+                  <p class="appointment-form-name">
+                    <label for="appointment-name">Ваше имя</label>
+                    <input type="text" id="appointment-name " name=" appointment-name" >
+                  </p>
+                <button class="button" type="submit">Записаться</button>
+            </form>
+
+          </section>
+
 
     </main>
 </body>
