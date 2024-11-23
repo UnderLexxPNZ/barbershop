@@ -48,37 +48,19 @@
         </nav>
 
     </header>
-    <!-- -->
 
-    <!--1 Для выделения основного содержимого страницы, которое не повторяется
-        на других страницах, используется тег <main>. И обычно на странице
-        используется только один тег <main>, логичнее всего повесить на него класс main-index -->
     <main class="main-index">
 
-        <!--2 Добавим главный заголовок h1, но его нет в макете, поэтому добавим ему 
-        класс visually-hidden — такой же класс, как и на скрытых пунктах меню.-->
         <h1 class="visually-hidden">Барбершоп «Бородинский»</h1>
 
-        <!--3 Добавляем изображение в тег img c обязательными атрибутами-->
         <img class="logo" src="#" alt="Логотип Барбершопа «Бородинский»">
 
-        <!--4 Верстка блока с преимуществами. Для обозначения крупного смыслового
-        (или «логического») раздела существует специальный тег <section>. Как понять,
-        что раздел смысловой? Если вы можете дать ему имя, описывающее его содержание
-        или назначение, то это точно он.
-        Для блока с преимуществами создадим смысловой блок с классом advantages 
-        («преимущества» на английском).-->
         <section class="advantages">
 
-            <!--5 В section должен присутствовать обязательно заголовок
-            Главный заголовок h1 уже есть, будим использовать h2 с классом 
-            visually-hidden, что бы визуально скрыть этот заголовок-->
             <h2 class="visually-hidden">Преимущества</h2>
 
-            <!--6 Создадим список с преимуществами -->
             <ul class="advantages-list">
                 <li class="advantages-item">
-                    <!--7 Заголовком преимущества будет тег <h3> с классом advantages-title-->
                     <h3 class="advantages-title">Быстро</h3>
                     <p class="advantages-description">Мы делаем свою работу быстро! Два часа пролетят незаметно и вы —
                         счастливый обладатель стильной стрижки-минутки!</p>
@@ -97,24 +79,17 @@
             </ul>
 
         </section>
-        <!--8 Добавим раздел (тег <section>) с популярными услугами-->
+
         <section class="services">
             <h2 class="services-title">Популярные услуги</h2>
             <ul class="services-list">
                 <li class="services-item">
 
-                    <!--9 Название услуги — тег с классом service-name.
-                    Это может быть тег <span>, или тег <h3>, но мы,
-                    как верстальщики, решили, что название услуги 
-                    не несёт сильной смысловой нагрузки в этом блоке,
-                    поэтому сделаем тегом <span>-->
                     <span class="services-name">Стрижка машинкой</span>
 
-                    <!--10 Для придания выразительности обернули в тег <b>-->
                     <b class="services-price">800 ₽</b>
                 </li>
 
-                <!--11 Скопировали пункты и заменили названия-->
                 <li class="services-item">
                     <span class="services-name">Стрижка усов</span>
                     <b class="services-price">1200 ₽</b>
@@ -128,14 +103,10 @@
                     <b class="services-price">2300 ₽</b>
                 </li>
 
-                <!--12 «Посмотреть все» сделаем ссылкой на страницу со всеми услугами.
-                Для уточнения дадим ей дополнительный класс button-all-->
                 <a class="button-all" href="#">Посмотреть всё</a>
 
-                <!--13 Создадим секцию для фотогалереи и добавим тудазаголовок-->
                 <section class="gallery">
                     <h2 class="gallery-title">Фотогалерея</h2>
-                    <!--Верстка слайдера-->
                     <h2 class="gallery-title">Фотогалерея</h2>
                     <img class="slider-image" src="#" alt="Примеры работ">
                     <button class="slider-button slider-prev" type="button">
@@ -145,9 +116,6 @@
                         <span class="visually-hidden">Следующее фото</span>
                     </button>
 
-                    <!--Элементы для смены активной фотографии верстаются через нумерованный список
-        (<ol>, «ordered list»ы), так как нам важен порядок фотографий в слайдере.
-        Одна точка — это кнопка со скрытым текстом.-->
                     <ol class="slider-division">
                         <li class="slider-division-item">
                             <button class="slider-division-button slider-division-button-current" type="button">
@@ -178,52 +146,94 @@
                     </ol>
                 </section>
 
-                <!--Добавляем сецию контакты-->
                 <section class="contacts">
                     <h2 class="contacts-title">Контакты</h2>
                     <h3 class="contacts-subtitle">Барбершоп «Бородинский»</h3>
                     <address class="contacts-address">
                         <p class="contacts-address-text">Санкт-Петербург, набережная реки Карповки, 5, литера П.</p>
                         <a class="contacts-phone" href="tel:+78005558628">+7 800 555-86-28</a>
+                    </address>
 
                         <h3 class="contacts-subtitle">Время работы</h3>
                         <li class="contacts-schedule-item">пн—пт: с 10:00 до 22:00</li>
                         <li class="contacts-schedule-item">сб—вс: с 10:00 до 19:00</li>
             </ul>
             <a class="button" href="#">Как проехать</a>
-        <a class="button button-feedback" href="#">Обратная связь</a>
+            <a class="button button-feedback" href="#">Обратная связь</a>
         </section>
 
-        <!--Cекция для записи в барбершоп и добавим туда заголовок и текст с описанием.-->
         <section class="appointment">
             <h2 class="appointment-title">Записаться</h2>
             <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони.</p>
 
-            <!-- Форма для записи -->
             <form class="appointment-form" action="https://echo.htmlacademy.ru/" method="post">
                 <p class="appointment-form-date">
                     <label class="form-label" for="appointment-date">Дата</label>
                     <input type="text" id="appointment-date" name="appointment-date" placeholder="01.01.2025">
-                  </p>
-                  <p class="appointment-form-time">
+                </p>
+                <p class="appointment-form-time">
                     <label for="appointment-time">Время</label>
                     <input type="text" id="appointment-time" name="appointment-time" placeholder="10:00">
-                  </p>
-                  <p class="appointment-form-phone">
+                </p>
+                <p class="appointment-form-phone">
                     <label for="appointment-phone">Телефон</label>
-                      <input type="text" id="appointment-phone" name="appointment-phone" placeholder="+7 800 000-00-00">
-                  </p>
-                  <p class="appointment-form-name">
+                    <input type="text" id="appointment-phone" name="appointment-phone" placeholder="+7 800 000-00-00">
+                </p>
+                <p class="appointment-form-name">
                     <label for="appointment-name">Ваше имя</label>
-                    <input type="text" id="appointment-name " name=" appointment-name" >
-                  </p>
+                    <input type="text" id="appointment-name " name=" appointment-name">
+                </p>
                 <button class="button" type="submit">Записаться</button>
             </form>
 
-          </section>
-
+        </section>
 
     </main>
+    <!-- Создадим тег <footer> и зададим тегу класс.-->
+        <footer class="page-footer">
+            <section class="footer-contacts">
+                <h2 class="visually-hidden">Контакты</h2>
+                <img class="footer-contacts-logo" src="#" alt="Логотип Барбершоп «Бородинский»">
+                <address class="footer-contacts-address">
+                    <p class="about-text">Санкт-Петербург, набережная реки Карповки, 5, литера П.</p>
+                    <a class="footer-contacts-adress-phone" href="tel:+78005558628">+7 800 555-86-28</a>
+                  </address>
+                  <a class="footer-contacts-map-link" href="#">Как нас найти?</a>
+              </section>
+        
+              <section class="newsletter">
+              <h2 class="page-footer-title">Получайте лучшие предложения</h2>
+              <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
+                <label for="newsletter-email">Email</label>
+                <input class="field"  placeholder="email@example.com" type="email" name="newsletter-email" id="newsletter-email" required>
+                <button class="button newsletter-button" type="submit">
+                  <span class="visually-hidden">Отправить</span>
+                </button>
+              </form>
+            </section>
+        
+            <section class="footer-social">
+                <h2 class="page-footer-title">Давайте дружить</h2>
+                <ul class="footer-social-list">
+                    <li class="footer-social-item">
+                      <a class="button" href="#">
+                        <span class="visually-hidden">Твиттер</span>
+                      </a>
+                    </li>
+                    <li class="footer-social-item">
+                      <a class="button" href="#">
+                        <span class="visually-hidden">ВКонтакте</span>
+                      </a>
+                    </li>
+                    <li class="footer-social-item">
+                      <a class="button" href="#">
+                        <span class="visually-hidden">Инстаграм</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <p class="about-text">Сделано в <a class="htmlacademy-link" href="https://htmlacademy.ru/">.html academy</a></p>
+              </section>
+        </footer>
 </body>
 
 </html>
