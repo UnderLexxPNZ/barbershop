@@ -1,0 +1,399 @@
+/* Добавим основной фон. Основным является тот фон, который
+используется чаще всего. И это практически всегда фон из дополнительных страниц. */
+@font-face {
+    font-family: "PT Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/pt-sans-regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PT Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/pt-sans-bold.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/pt-sans-italic.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/pt-sans-bold-italic.woff2") format("woff2");
+    font-display: swap;
+}
+
+/* PT Sans Narrow */
+@font-face {
+    font-family: "PT Sans Narrow";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/pt-sans-narrow-bold.woff2") format("woff2");
+    font-display: swap;
+}
+
+body {
+    font-family: "PT Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+
+    /*Мы указали фон, и теперь нам необходимо указать контрастный цвет текста.
+    Зачем это нужно? Когда подгружается фон, неважно — цвет это или картинка,
+    текст всегда должен быть виден на этом фоне.*/
+    color: #242424;
+    background-color: #fbf7f4;
+}
+/* Мы подошли к кнопкам. К ним у нас особое отношение, так как кнопки чаще всего
+используются на всех страницах сайта. Именно поэтому стили кнопок мы зададим сразу после body.
+Узнаем текстовые параметры из макета и перенесём их в стили.
+Интересный момент: селектор .button может использоваться как на кнопках <button>,
+так и на ссылках <a>. Поэтому нам нужно переопределить color, так как ссылка имеет
+свой встроенный цвет, и font-family, так как <button> имеет своё встроенное правило для шрифта.
+Следующие шаги будем размечать крупными мазками по такому алгоритму:
+
+1 Сходить в макет и узнать все необходимые текстовые параметры.
+2    Перенести их в файл стилей.
+ */
+
+ 
+.button {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  /* Для светлой кнопки переключения вида товаров добавим светлый фон и тёмный текст. */
+
+/* Light */
+.button-light {
+    color: #242424;
+    background-color: #ffffff;
+  }
+  
+
+/* Pages */
+/* Добавим фоновый цвет и сразу цвет текста для шапки. */
+.page-header {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* Перейдём к навигации. Впервые встречается шрифт "PT Sans Narrow".
+    Точечно применим его к этому блоку. Сразу же укажем семейство. */
+
+.navigation-link {
+    font-family: "PT Sans Narrow", sans-serif;
+    /* Укажем межстрочный интервал для ссылок в навигации.
+        Чаще всего рядом с line-height в паре идёт font-size.
+        font-size в блоке равен 16px, поэтому его нет смысла указывать — он наследуется от <body>.*/
+    line-height: 22px;
+    font-weight: 700;
+    text-align: center; /*центрируем текст*/
+    color: #ffffff; /*Одна из особенностей ссылок — для них нужно указать цвет,т.к. они имеют браузерную стилизацию. Для них указан синий цвет*/
+    background-color: #000000;
+    text-decoration: none; /*уберёт у ссылок стандартное подчёркивание*/
+    text-transform: uppercase; /*сделает текст в ВЕРХНЕМ регистре*/
+}
+
+/* Добавим фоновое изображение для главной страницы. */
+.main-index {
+    /* Кроме фонового изображения нужно добавить преобладающий фоновый цвет и контрастный цвет текста.*/
+    color: #ffffff;
+    background-color: #000000;
+    background-image: url("../images/index-bg.jpg");
+    background-size: 100% auto; /* Чтобы картинка не искажалась, зададим ей размеры  */
+    background-repeat: no-repeat; /* отключим заполнение всего пространства */
+  }
+
+  /* Перейдём к списку преимуществ. */
+
+  /* List */
+.advantages-list {
+    text-align: center;
+  }
+  
+  /* Title */
+  .advantages-title {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 32px;
+    line-height: 35px;
+    text-transform: uppercase;
+  }
+
+  /* Следующие четыре блока — «Услуги», «Фотогалерея», «Контакты» и «Записаться» — имеют светлый фон, но каждый блок сейчас существует как отдельная секция. Нам нужно их объединить или обернуть в <div>.*/
+
+  /* Index columns */
+.index-columns {/* Получившейся обёртке зададим фоновое изображение, фоновый цвет и цвет текста. */
+    color: #242424;
+    background-color: #fbf7f4;
+    background-image: url("../images/bg-noisy.png");
+  }
+
+  /* Services*/
+/* Добавим стили для блока «Популярные услуги». Весь текст в блоке написан прописными буквами,
+поэтому сразу на родителе укажем text-transform: uppercase;.Для конкретных текстовых элементов
+укажем размер шрифта, а для цены укажем ещё и цвет.
+  */
+  .services {
+    text-transform: uppercase;
+  }
+  /* Title */
+  .services-title {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 700;
+  }
+  
+  /* Price */
+  .services-list {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+  
+  .services-price {
+    color: #af7842;
+  }
+
+  /* Title */
+.gallery-title {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /*В блоке «Контакты» обязательно указываем цвет текста для телефона.
+Адрес размечен с помощью тега <address>, поэтому нужно указать ему
+font-style: normal;. Дело в том, что у тега <address> для этого CSS-свойства
+есть браузерные стили по умолчанию, которые нам нужно переопределить.
+Остальные элементы стилизуем по аналогии с блоком «Популярные услуги». */
+
+.contacts {
+    font-weight: 700;
+  }
+  
+  /* Title */
+  .contacts-title {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .contacts-address {
+    font-style: normal;
+  }
+  
+  /* Subtitle */
+  .contacts-subtitle {
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #af7842;
+  }
+  
+  /* Phone */
+  .contacts-phone {
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #242424;
+  }
+ 
+  /* Для блока «Записаться» повторяем действия по такому же алгоритму. */
+
+/* Title */
+.appointment-title {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  /* List */
+  .appointment-form {
+    color: #595959;
+  }
+  
+  /* Label */
+  .form-label {
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+/* Переходим к футеру.
+
+Добавим фоновый цвет, фоновое изображение, цвет текста и текстовые параметры для всего футера. */ 
+
+
+.page-footer {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #242424;
+    background-image: url("../images/bg-noisy.png");
+    background-repeat: repeat;
+  }
+/* Зададим ссылкам цвет и размер */  
+
+.page-footer a {
+    color: #ffffff;
+  }
+  
+  .page-footer .htmlacademy-link {
+    font-size: 14px;
+    color: #dbb590;
+  }
+/* Задалим стили для остального текста */  
+
+.page-footer-title {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  
+  .footer-contacts-address {
+    font-style: normal;
+  }
+  
+  .footer-contacts-address p {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  
+  .footer-contacts-address-phone {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  
+  .footer-contacts-map-link {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+/* Стилизация главной страницы завершена */
+
+/*Добавим текстовые свойства для заголовка внутренних страниц.
+Такой заголовок применяется на всех внутренних страницах, поэтому
+в разметке всех внутренних страниц будем добавлять этот класс для главных заголовков.*/
+.inner-header-title {
+    font-size: 32px;
+    line-height: 35px;
+    text-transform: uppercase;
+  }
+  
+  /*Добавим стили для хлебных крошек. Для ссылок начнём наследование цвета текста от родителя.*/
+
+/* Breadcrumbs */
+.breadcrumbs {
+    color: #242424;
+  }
+  
+  /* Link */
+  .breadcrumbs-link {
+    color: inherit;
+  }
+/*Добавление стилей для фильтра*/
+  
+/* Title */
+.catalog-filter-title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #242424;
+    text-transform: uppercase;
+  }
+  
+  /* Label */
+  .control-label {
+    font-weight: 700;
+  }
+
+  /* Добавим белый фон и контрастный тёмный текст для блока сортировки. */
+
+.sorting-container {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  /* Добавим базовую стилизацию для карточек товара. */
+
+/* Item */
+.product-card {
+    background-color: #ffffff;
+  }
+  
+  /* Link */
+  .product-card-link {
+    text-decoration: none;
+  }
+  
+  /* Title */
+  .product-card-title {
+    font-weight: 700;
+    color: #242424;
+  }
+  
+  /* Price */
+  .product-card-price {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #814b18;
+    text-transform: uppercase;
+  }
+  
+  /*Добавили стилизацию для пагинации*/
+
+/* Link */
+.pagination {
+    background-color: #ffffff;
+  }
+  
+  .pagination-link {
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none;
+    line-height: 16px;
+    font-weight: 700;
+  }
+  
+  .pagination-current {
+    color: #242424;
+    background-color: #ffffff;
+  }
+  
+  .pagination-disabled {
+    background-color: #595959;
+  }
+  
