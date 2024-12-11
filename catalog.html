@@ -50,6 +50,12 @@
   </header>
 
   <main>
+
+    <!--Добавили класс main-container как и в index.html-->
+    <main class="main-inner main-container">
+      <!--Обернули в DIV -->
+      <div class="page-container">
+
     <!-- Шапка -->
     <header class="inner-header">
       <h1 class="inner-header-title">Каталог</h1>
@@ -64,7 +70,10 @@
     </header>
 
     <section class="catalog-products">
-      <h2 class="visually-hidden">Список товаров с фильтрами</h2>
+
+       <!--временно добавим атрибут hidden, чтобы заголовок не рушил сетку-->
+       <h2 class="visually-hidden" hidden>Список товаров с фильтрами</h2>
+
       <!-- Фильтрация -->
       <form class="catalog-filter" action="https://echo.htmlacademy.ru/" method="get">
 
@@ -145,6 +154,8 @@
         </fieldset>
         <button class="button" type="submit">Показать</button>
       </form>
+      <!--Для объединения блоков, которые относятся к правой части сайта, добавим обёртку catalog-right-column-->
+      <div class="catalog-right-column">
 
       <!-- Сортировка -->
       <div class="sorting-container">
@@ -243,7 +254,9 @@
         </li>
       </ul>
       <button class="button pagination-show-more" type="button">Показать ещё</button>
+    </div>
     </section>
+  </div>
   </main>
   <footer class="page-footer">
     <section class="footer-contacts">

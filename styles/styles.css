@@ -39,7 +39,7 @@
   font-display: swap;
 }
 
-/* 1 Приступим к разработке паттерна sticky-footer. */
+/* 1 Приступим к разработке паттерна  . */
 
 html {
   height: 100%;/* 2 Нам нужно, чтобы размер тега <html> равнялся размеру окна браузера.*/
@@ -89,6 +89,26 @@ body {
   background-color: #000000;
 }
 
+/* 2-1 Приступим к разделу навигации */
+
+.navigation {
+  display: flex;/* блоки стоят на оси слева на право*/
+  width: 940px; /* Размеры из макета */
+  margin: 0 auto; /* Блок встал по центру */
+}
+
+.navigation-list { 
+  width: 430px; /* Размеры из макета */
+  /* обнулили стандартные отступы */
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-user {
+  max-width: 250px; /*размеры для Поиск, корзина, вход*/ 
+  margin-left: auto;
+}
+
 .navigation-link {
   font-family: "PT Sans Narrow", sans-serif;
   line-height: 22px;
@@ -99,9 +119,17 @@ body {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+/* Для страницы Catalog */
+.navigation-logo { /* размеры из макета */
+  width: 140px;
+  margin-right: 100px;
+}
+
 /* 7 На добавленный класс добавим свойство, которое занимает все свободное пространство */
+
 .main-container {
-  flex-grow: 1; 
+  flex-grow: 1; /* Поставим контент по центру, предварительно ограничив ширину блока. */
 }
 
 .main-index {
@@ -112,9 +140,30 @@ body {
   background-repeat: no-repeat;
 }
 
+.logo {
+  /* Поставим контент по центру, предварительно ограничив ширину блока. */
+  display: block;
+  margin: 0 auto;
+}
+
+
 /* List */
 .advantages-list {
+  /* Удалим отступы у списка преимуществ */
+  margin: 0;
+  padding: 0;
+
+  /* Добавим флекс, и разнесём блоки по сторонам родительского блока. */
+  display: flex;  
+  justify-content: space-between;
+
   text-align: center;
+  color: #ffffff;
+}
+
+/* Item */
+.advantages-item {
+  width: 277px;
 }
 
 /* Title */
@@ -127,6 +176,10 @@ body {
 
 /* Index columns */
 .index-columns {
+  display: flex; /* выстраиваем блоки по оси*/
+  justify-content: space-between; /*Разиносим блоки про краям*/
+  padding: 0 40px; /* размер из макета */
+
   color: #242424;
   background-color: #fbf7f4;
   background-image: url("../images/bg-noisy.png");
@@ -134,7 +187,12 @@ body {
 
 /* Services*/
 .services {
+  width: 390px; /* размер из макета */
   text-transform: uppercase;
+}
+
+.gallery {
+  width: 390px; /* размер из макета */
 }
 
 /* Title */
@@ -164,6 +222,7 @@ body {
 }
 
 .contacts {
+  width: 350px; /* Из макета */
   font-weight: 700;
 }
 
@@ -243,6 +302,19 @@ body {
   text-transform: uppercase;
 }
 
+/* Отцентрируем контейнер */
+.page-footer-container {
+  display: flex;
+  width: 940px;
+  margin: 0 auto; /*Выровняли по центру */
+}
+
+/* Поставим размер блока с контактами в футере. Так же добавим отступ между блоками. */
+.footer-contacts {
+  width: 200px;
+  margin-right: 130px;
+}
+
 .footer-contacts-address {
   font-style: normal;
 }
@@ -273,6 +345,11 @@ body {
   text-transform: uppercase;
 }
 
+.footer-social {
+  margin-left: auto;
+  max-width: 190px;
+}
+
 .inner-header-title {
   font-size: 32px;
   line-height: 35px;
@@ -289,6 +366,21 @@ body {
   color: inherit;
 }
 
+/* Для блока catalog-products зададим флексовую модель поведения */
+.catalog-products {
+  display: flex;
+}
+
+/* Для фильтра нужно указать размер блока и отступ справа. Посмотрим на макет и измерим эти значения. */
+.catalog-filter {
+  width: 220px;
+  margin-right: 20px;
+}
+
+/* Для надёжности вёрстки нужно указать ширину контейнера из предыдущего шага */
+.catalog-right-column {
+  width: 700px;
+}
 /* Title */
 .catalog-filter-title {
   font-size: 20px;
