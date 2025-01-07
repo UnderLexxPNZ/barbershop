@@ -39,29 +39,35 @@
   font-display: swap;
 }
 
-/* 1 Приступим к разработке паттерна  . */
-
 html {
-  height: 100%;/* 2 Нам нужно, чтобы размер тега <html> равнялся размеру окна браузера.*/
+  height: 100%;
 }
 
 body {
-  margin: 0; /* 3 Во всех браузерах у тега <body> задан margin, который нам и надо сбросить.*/
-  display: flex ; /* 4 теперь блоки стоят на оси слева на право*/ 
-  flex-direction: column; /* 5 разворачиваем ось сверзу вниз */
-  min-height: 100%; /* 6 минимальная высота блока 100% (по всему экрану) */
-
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
   font-family: "PT Sans", sans-serif;
   font-size: 16px;
   line-height: 24px;
   color: #242424;
   background-color: #fbf7f4;
-
-  /*рамка для визуализации. Не нужна в проекте */
-  outline: 5px solid rgba(255, 99, 78, 0.5);
-  outline-offset: -5px;
 }
 
+/*1 Добавляем класс*/
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Button */
 .button {
   font-family: inherit;
   font-size: 16px;
@@ -74,42 +80,38 @@ body {
   text-transform: uppercase;
 }
 
-
-
 /* Light */
-.button-light {
+.button-light,
+.button-current {
   color: #242424;
   background-color: #ffffff;
 }
 
-
 /* Pages */
+
 .page-header {
   color: #ffffff;
   background-color: #000000;
 }
 
-/* 2-1 Приступим к разделу навигации */
-
 .navigation {
-  display: flex;/* блоки стоят на оси слева на право*/
-  width: 940px; /* Размеры из макета */
-  margin: 0 auto; /* Блок встал по центру */
+  display: flex;
+  width: 940px;
+  margin: 0 auto;
 }
 
-.navigation-list { 
-  width: 430px; /* Размеры из макета */
-  /* обнулили стандартные отступы */
+.navigation-list {
+  display: flex; /*3 сделали флексами*/
+  flex-wrap: wrap; /*4 добавили перенос флекс элементов*/
+  width: 470px;
   margin: 0;
   padding: 0;
-}
-
-.navigation-user {
-  max-width: 250px; /*размеры для Поиск, корзина, вход*/ 
-  margin-left: auto;
+  list-style-type: none; /*2 отключение точек ненумерованного списка*/
 }
 
 .navigation-link {
+  display: block; /*6 Изменили текстовые боксы на блочные. Тогда сработают отступы*/
+  padding: 24px 19px; /*5 Добавили внутренних отступов*/
   font-family: "PT Sans Narrow", sans-serif;
   line-height: 22px;
   font-weight: 700;
@@ -120,16 +122,28 @@ body {
   text-transform: uppercase;
 }
 
-/* Для страницы Catalog */
-.navigation-logo { /* размеры из макета */
+.navigation-logo {
+  display: flex;
+  align-items: center;
   width: 140px;
   margin-right: 100px;
 }
 
-/* 7 На добавленный класс добавим свойство, которое занимает все свободное пространство */
+.navigation-user {
+  max-width: 250px;
+  margin-left: auto;
+}
+
+.navigation-user .navigation-link {
+  /*7 Задали минимальную высоту и ширину*/
+  min-width: 16px;
+  min-height: 22px;
+}
 
 .main-container {
-  flex-grow: 1; /* Поставим контент по центру, предварительно ограничив ширину блока. */
+  flex-grow: 1;
+  padding-top: 64px; /*8 Чтобы контент не прилипал к шапке и футеру*/
+  padding-bottom: 60px;
 }
 
 .main-index {
@@ -140,24 +154,37 @@ body {
   background-repeat: no-repeat;
 }
 
-.logo {
-  /* Поставим контент по центру, предварительно ограничив ширину блока. */
-  display: block;
+.main-inner {
+  padding-top: 40px; /* 23 Для всей страницы каталога уменьшим отступ у всего контента по макету.*/
+  color: #242424;
+  background-color: #fbf7f4;
+  background-image: url("../images/bg-noisy.png");
+}
+
+.page-container {
+  width: 940px;
   margin: 0 auto;
 }
 
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 64px; /*9 добавим нижний отступ логотипу*/
+}
+
+/* Advantages */
+.advantages {
+  margin-bottom: 58px;/*10 добавим нижний отступ списку преимуществ*/
+}
 
 /* List */
 .advantages-list {
-  /* Удалим отступы у списка преимуществ */
+  display: flex;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
-
-  /* Добавим флекс, и разнесём блоки по сторонам родительского блока. */
-  display: flex;  
-  justify-content: space-between;
-
   text-align: center;
+  list-style-type: none;/*11 отключение точек ненумерованного списка*/
   color: #ffffff;
 }
 
@@ -168,35 +195,45 @@ body {
 
 /* Title */
 .advantages-title {
+  margin-top: 0;/*12 добавим отступы по макету*/
+  margin-bottom: 56px;/*12 добавим отступы по макету*/
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 32px;
   line-height: 35px;
   text-transform: uppercase;
 }
 
+/* Description */
+.advantages-description {
+  margin: 0; /*13 уберем отступы так как оп умолчанию у <p> есть отступы*/
+}
+
 /* Index columns */
 .index-columns {
-  display: flex; /* выстраиваем блоки по оси*/
-  justify-content: space-between; /*Разиносим блоки про краям*/
-  padding: 0 40px; /* размер из макета */
-
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px; /*14 размер по макету*/
+  padding: 40px;/*14 размер по макету*/
   color: #242424;
   background-color: #fbf7f4;
   background-image: url("../images/bg-noisy.png");
 }
 
-/* Services*/
-.services {
-  width: 390px; /* размер из макета */
-  text-transform: uppercase;
+.index-columns:last-child {
+  margin-bottom: 0; /*15 Убрали у последнего отступ*/
 }
 
-.gallery {
-  width: 390px; /* размер из макета */
+/* Services */
+
+.services {
+  width: 390px;
+  text-transform: uppercase;
 }
 
 /* Title */
 .services-title {
+  margin-top: 0; /*16 размер по макету*/
+  margin-bottom: 28px; /*16 размер по макету*/
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -213,8 +250,14 @@ body {
   color: #af7842;
 }
 
+.gallery {
+  width: 390px;
+}
+
 /* Title */
 .gallery-title {
+  margin-top: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -222,12 +265,14 @@ body {
 }
 
 .contacts {
-  width: 350px; /* Из макета */
+  width: 350px;
   font-weight: 700;
 }
 
 /* Title */
 .contacts-title {
+  margin-top: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -255,8 +300,14 @@ body {
   color: #242424;
 }
 
+.appointment {
+  width: 430px;
+}
+
 /* Title */
 .appointment-title {
+  margin-top: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -264,7 +315,7 @@ body {
 }
 
 /* List */
-.appointment-form {
+.appointment-info {
   color: #595959;
 }
 
@@ -275,6 +326,8 @@ body {
   text-transform: uppercase;
 }
 
+/* Footer */
+
 .page-footer {
   font-size: 14px;
   font-weight: 700;
@@ -282,6 +335,13 @@ body {
   background-color: #242424;
   background-image: url("../images/bg-noisy.png");
   background-repeat: repeat;
+}
+
+.page-footer-container {
+  display: flex;
+  width: 940px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 .page-footer a {
@@ -294,6 +354,8 @@ body {
 }
 
 .page-footer-title {
+  margin-top: 0;/*17 размер по макету*/
+  margin-bottom: 14px;/*17 размер по макету*/
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 20px;
   line-height: 28px;
@@ -302,14 +364,6 @@ body {
   text-transform: uppercase;
 }
 
-/* Отцентрируем контейнер */
-.page-footer-container {
-  display: flex;
-  width: 940px;
-  margin: 0 auto; /*Выровняли по центру */
-}
-
-/* Поставим размер блока с контактами в футере. Так же добавим отступ между блоками. */
 .footer-contacts {
   width: 200px;
   margin-right: 130px;
@@ -350,37 +404,65 @@ body {
   max-width: 190px;
 }
 
+.footer-social-list {
+  display: flex;/*19 учтем переполнение для списков соцсетей*/
+  flex-wrap: wrap;/*перенос */
+  /*18 У списка социальных сетей сразу отключим стили по умолчанию для ul*/
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer-social-item {
+  width: 56px;/* 20 зададим размеры для иконок */
+  height: 44px;/* 20 зададим размеры для иконок */
+  margin-right: 8px; /*Отстуо справа, что бы не прилипали*/
+  margin-bottom: 8px;/* 22 Что бы при переполнении элементы не прилипали */
+}
+
+.footer-social-item:nth-child(3n) {
+  margin-right: 0; /*21 каждой третьей социальной сети убираем отступ справа.*/
+}
+
 .inner-header-title {
+  /*24 у всех заголовков по умолчанию есть отступы,
+  то их приходится переопределять, чтобы соответствовать макету*/
+  margin-top: 0;
+  margin-bottom: 16px;
+
   font-size: 32px;
   line-height: 35px;
   text-transform: uppercase;
 }
 
 /* Breadcrumbs */
-.breadcrumbs {
+.breadcrumbs {/*25 сделаем хлебные крошки флексовыми, зададим отступы и уберем точки списка ul*/
+  display: flex;
+  margin: 0;
+  padding: 0;
   color: #242424;
+  list-style-type: none;
 }
 
 /* Link */
 .breadcrumbs-link {
+  margin-right: 32px;/*26 из макета*/ 
   color: inherit;
 }
 
-/* Для блока catalog-products зададим флексовую модель поведения */
 .catalog-products {
   display: flex;
 }
 
-/* Для фильтра нужно указать размер блока и отступ справа. Посмотрим на макет и измерим эти значения. */
 .catalog-filter {
   width: 220px;
   margin-right: 20px;
 }
 
-/* Для надёжности вёрстки нужно указать ширину контейнера из предыдущего шага */
 .catalog-right-column {
   width: 700px;
 }
+
 /* Title */
 .catalog-filter-title {
   font-size: 20px;
@@ -396,8 +478,22 @@ body {
 }
 
 .sorting-container {
+  display: flex; /*27*/
+  margin-bottom: 16px;/*27*/
+  padding: 16px;/*27*/
   color: #000000;
   background-color: #ffffff;
+}
+
+.sorting-container .button {
+  width: 56px;/*27*/
+  height: 44px;/*27*/
+}
+
+.product-list {
+  list-style-type: none; /*28 Переопределим стандартную стилизацию для <ul>*/
+  margin: 0;
+  padding: 0;
 }
 
 /* Item */
@@ -409,6 +505,8 @@ body {
 .product-card-link {
   text-decoration: none;
 }
+
+
 
 /* Title */
 .product-card-title {
@@ -425,17 +523,47 @@ body {
   text-transform: uppercase;
 }
 
-/* Link */
-.pagination {
+/* Pagination */
+.pagination-container {
+  display: flex;/*29*/
+  padding: 16px;/*29*/
   background-color: #ffffff;
 }
 
-.pagination-link {
+.pagination {
+  display: flex;/*29*/
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Item */
+
+.pagination-item:not(:last-child) {
+  margin-right: 8px; /*30 Добавим отступ справа у всех пунктов, кроме последнего элемента.*/
+}
+
+.pagination-link { /*31 Доделываем кнопки пагинации: указываем базовую стилизацию и размеры.*/
+  display: block;
+  box-sizing: border-box;
+  width: 50px;
+  height: 44px;
+  padding: 14px 20px;
+  line-height: 16px;
+  font-weight: 700;
   color: #ffffff;
   background-color: #000000;
   text-decoration: none;
-  line-height: 16px;
-  font-weight: 700;
+}
+
+/* Without background */
+.pagination-clear {
+  background-color: transparent;
+}
+
+/* Show more */
+.pagination-show-more {
+  margin-left: auto; /*32 Прибиваем кнопку «Показать ещё» справа.*/
 }
 
 .pagination-current {
